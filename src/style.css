@@ -1,4 +1,40 @@
+body {
+  background-color: rgba(211, 211, 211, 0.62);
+  font-family: "Mona Sans", sans-serif;
+}
 .weather-app-container {
-  margin: 0 auto;
+  background-color: azure;
   max-width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 30px 50px rgba(65, 50, 100, 0.08);
+}
+h1 {
+  text-align: center;
+  color: rgb(15, 15, 15);
+  font-size:28px ;
+}
+.search-form {
+  max-width: 60%;
+  margin: 0 auto;
+}
+.search-form-input,
+.search-form-button {
+  padding: 5px;
+  border-radius: 5px;
+}
+.search-form-input {
+  width: 72%;
+  margin-left: 2px;
+  margin-right: 2px;
+  background-color: #f0ffff;
+  border: none;
+  box-shadow: 5px 5px 5pxlightgray;
+}
+.search-form-button {
+  width: 25%;
+  box-shadow: 5px 5px 5pxlightgray;
+  color: #f0ffff;
+  background-color: black;
 }
