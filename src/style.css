@@ -13,7 +13,7 @@ body {
 h1 {
   text-align: center;
   color: rgb(15, 15, 15);
-  font-size:28px ;
+  font-size: 28px;
 }
 .search-form {
   max-width: 60%;
@@ -23,6 +23,7 @@ h1 {
 .search-form-button {
   padding: 5px;
   border-radius: 5px;
+  font-size: 14px;
 }
 .search-form-input {
   width: 72%;
@@ -37,4 +38,27 @@ h1 {
   box-shadow: 5px 5px 5pxlightgray;
   color: #f0ffff;
   background-color: black;
+}
+main {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
+  padding: 10px;
+  line-height: 24px;
+}
+.location-details {
+  font-size: 20px;
+  font-weight: 600;
+}
+.current-temp-icon {
+  font-size: 42px;
+}
+.current-temp-value {
+  font-size: 60px;
+  line-height: 70px;
+}
+.current-temp-unit {
+  position: relative;
+  top: -32px;
+  font-weight: 500;
 }
