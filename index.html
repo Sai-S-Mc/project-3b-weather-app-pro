@@ -16,12 +16,13 @@
     <div class="weather-app-container">
       <header>
         <h1>Welcome back!</h1>
-        <form class="search-form">
+        <form class="search-form" id="search-form">
           <input
             type="search"
             placeholder="Enter a city..."
             required
             class="search-form-input"
+            id="search-form-input"
           />
           <input type="submit" class="search-form-button" />
         </form>
@@ -30,7 +31,7 @@
         <div>
           <p>
             <div class="location-details">
-              <span class="city">city name</span>,
+              <span class="city" id="city">city name</span>,
               <span class="country">country</span>
             </div>
             <small>Sunday 17:37</small>
