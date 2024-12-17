@@ -38,6 +38,11 @@ h1 {
   box-shadow: 5px 5px 5pxlightgray;
   color: #f0ffff;
   background-color: black;
+  transition: ease-in-out 250ms;
+}
+.search-form-button:hover{
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.937);
 }
 main {
   border-top: 2px solid #dee1e1;
@@ -84,4 +89,9 @@ footer {
 }
 footer a {
   color: rgba(0, 0, 0, 0.957);
+  transition: font-size 200ms;
+}
+footer a:hover {
+  font-size: 13.5px;
+  cursor: pointer;
 }

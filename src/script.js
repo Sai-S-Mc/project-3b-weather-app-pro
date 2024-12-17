@@ -4,6 +4,8 @@ function updateWeather(response) {
   let countryElement = document.querySelector("#country");
   let temperatureElement = document.querySelector("#current-temperature");
   let descriptionElement = document.querySelector("#weather-description");
+  let description = response.data.condition.description;
+  description = description.charAt(0).toUpperCase() + description.slice(1);
   let realFeelElement = document.querySelector("#real-feel-temperature");
   let humidityElement = document.querySelector("#humidity");
   let windspeedElement = document.querySelector("#windspeed");
@@ -11,12 +13,12 @@ function updateWeather(response) {
   cityElement.innerHTML = response.data.city;
   countryElement.innerHTML = response.data.country;
   temperatureElement.innerHTML = Math.round(response.data.temperature.current);
-  descriptionElement.innerHTML = response.data.condition.description;
-  realFeelElement.innerHTML = `feels like : ${Math.round(
+  descriptionElement.innerHTML = description;
+  realFeelElement.innerHTML = `Feels like : ${Math.round(
     response.data.temperature.feels_like
   )}°C`;
-  humidityElement.innerHTML = `humidity : ${response.data.temperature.humidity}%`;
-  windspeedElement.innerHTML = `windspeed : ${Math.round(
+  humidityElement.innerHTML = `Humidity : ${response.data.temperature.humidity}%`;
+  windspeedElement.innerHTML = `Windspeed : ${Math.round(
     response.data.wind.speed
   )} km/h`;
 }
