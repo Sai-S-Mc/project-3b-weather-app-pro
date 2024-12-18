@@ -17,7 +17,7 @@ h1 {
 }
 .search-form {
   max-width: 60%;
-  margin: 0 auto;
+  margin: 0 auto 10px;
 }
 .search-form-input,
 .search-form-button {
@@ -58,6 +58,9 @@ main {
   font-weight: 600;
   max-width: 300px;
 }
+#day-and-time {
+  color: rgba(58, 56, 56, 0.808);
+}
 .current-temp-icon {
   width: 80px;
   height: 80px;
@@ -79,10 +82,44 @@ main {
   margin-top: 15px;
   padding-right: 10px;
   font-size: 15px;
+  font-weight: 500;
+  color: rgba(58, 56, 56, 0.808);
 }
 p {
   font-size: 14px;
   text-align: center;
+  color: rgba(58, 56, 56, 0.808);
+  font-weight: 500;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #dee1e1;
+}
+.forecast-weather-container {
+  margin: 25px auto;
+  display: flex;
+  justify-content: space-around;
+}
+.forecast-weather-day {
+  text-align: center;
+  color: rgba(58, 56, 56, 0.808);
+  font-weight: 500;
+  border-right:2px solid #dee1e1;
+  border-left: 2px solid #dee1e1;
+  padding:0 20px
+}
+.forecast-weather-day-name{
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+.forecast-weather-icon{
+  font-size: 40px;
+}
+.forecast-weather-temperatures{
+  display: flex;
+  justify-content: space-between;
+  margin: 10px auto;
+}
+.forecast-weather-temperature-high{
+  font-weight: bold;
 }
 footer {
   text-align: center;

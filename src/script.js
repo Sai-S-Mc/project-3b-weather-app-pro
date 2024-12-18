@@ -56,13 +56,13 @@ function updateWeather(response) {
   countryElement.innerHTML = response.data.country;
   temperatureElement.innerHTML = Math.round(response.data.temperature.current);
   descriptionElement.innerHTML = description;
-  realFeelElement.innerHTML = `Feels like : ${Math.round(
+  realFeelElement.innerHTML = `Feels like : <strong>${Math.round(
     response.data.temperature.feels_like
-  )}°C`;
-  humidityElement.innerHTML = `Humidity : ${response.data.temperature.humidity}%`;
-  windspeedElement.innerHTML = `Windspeed : ${Math.round(
+  )}°C</strong>`;
+  humidityElement.innerHTML = `Humidity : <strong>${response.data.temperature.humidity}%</strong>`;
+  windspeedElement.innerHTML = `Windspeed : <strong>${Math.round(
     response.data.wind.speed
-  )} km/h`;
+  )} km/h</strong>`;
   icon.innerHTML = `<img src = "${response.data.condition.icon_url}" class="current-temp-icon">`;
   weatherQuote.innerHTML = updateQuote(temperatureElement.innerHTML);
 
