@@ -24,6 +24,18 @@ function updateDateTime(now) {
   return `${day} ${currentHour}:${currentMinutes}`;
 }
 
+function updateQuote(temp) {
+  if (temp < 10) {
+    return `" <em>Stay warm</em> 🥶🧦"`;
+  } else if (temp > 10 && temp < 20) {
+    return `" <em>Tad bit chilly</em> 🍃🧥"`;
+  } else if (temp > 20 && temp < 30) {
+    return `" <em>Enjoy the warm weather</em> 🌦️☀️"`;
+  } else {
+    return `" <em>Remember to stay hydrated</em> 💧🕶️"`;
+  }
+}
+
 function updateWeather(response) {
   let cityElement = document.querySelector("#city");
   let countryElement = document.querySelector("#country");
@@ -35,6 +47,8 @@ function updateWeather(response) {
   let humidityElement = document.querySelector("#humidity");
   let windspeedElement = document.querySelector("#windspeed");
   let currentTimeElement = document.querySelector("#day-and-time");
+  let icon = document.querySelector("#current-temp-icon");
+  let weatherQuote = document.querySelector("#quote");
   let apiTimeStamp = response.data.time;
   let now = new Date(apiTimeStamp * 1000);
 
@@ -49,7 +63,9 @@ function updateWeather(response) {
   windspeedElement.innerHTML = `Windspeed : ${Math.round(
     response.data.wind.speed
   )} km/h`;
-  
+  icon.innerHTML = `<img src = "${response.data.condition.icon_url}" class="current-temp-icon">`;
+  weatherQuote.innerHTML = updateQuote(temperatureElement.innerHTML);
+
   currentTimeElement.innerHTML = updateDateTime(now);
 }
 
