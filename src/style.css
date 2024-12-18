@@ -31,11 +31,9 @@ h1 {
   margin-right: 2px;
   background-color: #dadadace;
   border: none;
-  box-shadow: 5px 5px 5pxlightgray;
 }
 .search-form-button {
   width: 25%;
-  box-shadow: 5px 5px 5pxlightgray;
   color: #f0ffff;
   background-color: black;
   transition: ease-in-out 300ms;
