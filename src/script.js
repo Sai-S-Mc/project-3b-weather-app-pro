@@ -1,5 +1,30 @@
+function updateDateTime(now) {
+  let test = new Date();
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let day = days[now.getDay()];
+  let currentHour = now.getHours();
+  let currentMinutes = now.getMinutes();
+
+  if (currentHour < 10) {
+    currentHour = `0${currentHour}`;
+  }
+
+  if (currentMinutes < 10) {
+    currentMinutes = `0${currentMinutes}`;
+  }
+
+  return `${day} ${currentHour}:${currentMinutes}`;
+}
+
 function updateWeather(response) {
-  console.log(response.data);
   let cityElement = document.querySelector("#city");
   let countryElement = document.querySelector("#country");
   let temperatureElement = document.querySelector("#current-temperature");
@@ -9,6 +34,9 @@ function updateWeather(response) {
   let realFeelElement = document.querySelector("#real-feel-temperature");
   let humidityElement = document.querySelector("#humidity");
   let windspeedElement = document.querySelector("#windspeed");
+  let currentTimeElement = document.querySelector("#day-and-time");
+  let apiTimeStamp = response.data.time;
+  let now = new Date(apiTimeStamp * 1000);
 
   cityElement.innerHTML = response.data.city;
   countryElement.innerHTML = response.data.country;
@@ -21,7 +49,10 @@ function updateWeather(response) {
   windspeedElement.innerHTML = `Windspeed : ${Math.round(
     response.data.wind.speed
   )} km/h`;
+  
+  currentTimeElement.innerHTML = updateDateTime(now);
 }
+
 function apiCitySearch(city) {
   let apiKey = "tbfob32e017e01391b34fe15b81ad2a6";
   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
