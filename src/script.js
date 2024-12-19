@@ -1,21 +1,35 @@
+function formatForecastDay(timestamp) {
+  let then = new Date(timestamp * 1000);
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", ];
+  let day = days[then.getDay()];
+  return day;
+}
+
 function addForecast(response) {
-  let days = ["Wed", "Thu", "Fri", "Sat", "Sun"];
   let forecastHtml = "";
-  days.forEach(function (day) {
-    forecastHtml =
-      forecastHtml +
-      `<div class="forecast-weather-day">
-    <div class="forecast-weather-day-name">Sun</div>
-    <div class="forecast-weather-icon">🌨️</div>
-    <div class="forecast-weather-temperatures">
-    <div class="forecast-weather-temperature-high">2°</div>
-    <div class="forecast-weather-temperature-low">-3°</div>
-    </div>
-    </div>`;
+
+  response.data.daily.forEach(function (day, index) {
+    if (index < 5) {
+      forecastHtml =
+        forecastHtml +
+        `<div class="forecast-weather-day">
+      <div class="forecast-weather-day-name">${formatForecastDay(
+        day.time
+      )}</div>
+      <img src = "${day.condition.icon_url}" class="forecast-weather-icon"/>
+      <div class="forecast-weather-temperatures">
+      <div class="forecast-weather-temperature-high">${Math.round(
+        day.temperature.maximum
+      )}°</div>
+      <div class="forecast-weather-temperature-low">${Math.round(
+        day.temperature.minimum
+      )}°</div>
+      </div>
+      </div>`;
+    }
   });
-  let forecastContainerElement = document.querySelector(
-    "#forecast-weather-container"
-  );
+
+  let forecastContainerElement = document.querySelector("#forecast-weather-container");
   forecastContainerElement.innerHTML = forecastHtml;
 }
 
@@ -52,7 +66,7 @@ function updateDateTime(now) {
 
 function updateQuote(temp) {
   if (temp < 10) {
-    return `" <em>Stay warm</em> 🥶🧦"`;
+    return `" <em>Keep warm</em> ♨️🧦"`;
   } else if (temp > 10 && temp < 20) {
     return `" <em>Tad bit chilly</em> 🍃🧥"`;
   } else if (temp > 20 && temp < 30) {
@@ -111,8 +125,6 @@ function handleSearch(event) {
 
   apiCitySearch(userInput);
 }
-
-
 
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", handleSearch);

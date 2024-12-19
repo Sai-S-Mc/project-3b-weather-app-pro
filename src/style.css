@@ -64,6 +64,9 @@ main {
 .current-temp-icon {
   width: 80px;
   height: 80px;
+  background-color: #d6d6d6c7;
+  border-radius: 50px;
+  margin-right: 10px;
 }
 .current-temp-value {
   position: relative;
@@ -102,23 +105,26 @@ p {
   text-align: center;
   color: rgba(58, 56, 56, 0.808);
   font-weight: 500;
-  border-right:2px solid #dee1e1;
+  border-right: 2px solid #dee1e1;
   border-left: 2px solid #dee1e1;
-  padding:0 20px
+  padding: 0 20px;
 }
-.forecast-weather-day-name{
+.forecast-weather-day-name {
   font-size: 15px;
   margin-bottom: 10px;
 }
-.forecast-weather-icon{
-  font-size: 40px;
+.forecast-weather-icon {
+  width: 65px;
+  height: 65px;
+  background-color: #d6d6d6c7;
+  border-radius: 50px;
 }
-.forecast-weather-temperatures{
+.forecast-weather-temperatures {
   display: flex;
   justify-content: space-between;
   margin: 10px auto;
 }
-.forecast-weather-temperature-high{
+.forecast-weather-temperature-high {
   font-weight: bold;
 }
 footer {
