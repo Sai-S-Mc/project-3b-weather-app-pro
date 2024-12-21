@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Weather App</title>
-    <link rel="stylesheet" href="src/style.css" />
+    <link rel="stylesheet" href="../src/style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -13,7 +13,7 @@
     />
     <script src="https://unpkg.com/axios@1.6.7/dist/axios.min.js"></script>
   </head>
-  <body id="home-page-minimal">
+  <body id="colorful-theme">
     <div class="weather-app-container">
       <header>
         <h1>Welcome back!</h1>
@@ -55,21 +55,20 @@
           id="forecast-weather-container"
         ></div>
         <div class="themes">
-          <div class="dark-theme">
-            Fancy a dark theme?
-            <a href="themes/dark-theme.html" target="_blank">
-              <button class="theme-button dark-button">Dark</button>
+          <div class="minimal-theme">
+            Fancy a minimalistic theme?
+            <a href="../index.html" target="_blank">
+              <button class="theme-button minimal-button">Minimal</button>
             </a>
           </div>
-          <div class="light-colorful-theme">
-            Fancy a colorful theme?
-            <a href="themes/colorful-theme.html">
-              <button class="theme-button color-button">Color</button>
+          <div class="dark-theme">
+            Fancy a dark theme?
+            <a href="dark-theme.html">
+              <button class="theme-button dark-button">Dark</button>
             </a>
           </div>
         </div>
       </main>
-
       <footer>
         This project was coded by
         <a href="https://github.com/Sai-S-Mc">Sai-S-Mc</a>
@@ -83,6 +82,6 @@
         </a>
       </footer>
     </div>
-    <script src="src/script.js"></script>
+    <script src="../src/script.js"></script>
   </body>
 </html>

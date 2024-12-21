@@ -65,11 +65,11 @@ function updateDateTime(now) {
 }
 
 function updateQuote(temp) {
-  if (temp < 10) {
+  if (temp <= 10) {
     return `" <em>Keep warm</em> ♨️🧦"`;
   } else if (temp > 10 && temp < 20) {
     return `" <em>Tad bit chilly</em> 🍃🧥"`;
-  } else if (temp > 20 && temp < 30) {
+  } else if (temp >= 20 && temp <= 30) {
     return `" <em>Enjoy the warm weather</em> 🌦️☀️"`;
   } else {
     return `" <em>Remember to stay hydrated</em> 💧🕶️"`;
