@@ -126,6 +126,24 @@ function handleSearch(event) {
   apiCitySearch(userInput);
 }
 
+function updateHeading() {
+  let timeNow = new Date();
+  let currentHour = timeNow.getHours();
+  let headingElement = document.querySelector("#heading");
+
+  if (currentHour >= 5 && currentHour < 12) {
+    headingElement.innerHTML = "Good Morning🌅!";
+  } else if (currentHour >= 12 && currentHour < 17) {
+    headingElement.innerHTML = "Good Afternoon🌞!";
+  } else if (currentHour >= 17 && currentHour < 21) {
+    headingElement.innerHTML = "Good Evening🌆!";
+  } else{
+    headingElement.innerHTML = "Good Night🌛!";
+  }
+} 
+
+updateHeading();
+
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", handleSearch);
 
