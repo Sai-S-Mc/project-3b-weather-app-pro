@@ -70,6 +70,11 @@ h1 {
   font-size: 15px;
   font-weight: 500;
 }
+.high-low{
+  font-size: 14px;
+  font-style: italic;
+  font-weight: 500;
+}
 p {
   font-size: 14px;
   text-align: center;
@@ -176,6 +181,10 @@ body#home-page-minimal {
 #home-page-minimal p {
   border-bottom: 2px solid #dee1e1;
   color: #818181;
+}
+#home-page-minimal .high-low{
+  margin-top: 5px;
+  color: #818181 ;
 }
 #home-page-minimal .forecast-weather-day {
   border-right: 2px solid #dee1e1;

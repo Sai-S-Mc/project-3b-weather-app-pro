@@ -1,15 +1,36 @@
 function formatForecastDay(timestamp) {
   let then = new Date(timestamp * 1000);
-  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", ];
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   let day = days[then.getDay()];
   return day;
 }
 
-function addForecast(response) {
-  let forecastHtml = "";
+function formatToday(today){
+  let now = new Date(today*1000);
+  let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  let day = days[now.getDay()];
+  let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  let month = months[now.getMonth()];
+  let date = now.getDate();
+  return `${day}, ${month} ${date}`;
+}
 
+function addForecast(response) {
+  let today = document.querySelector("#day-and-time");
+  let highTodayElement = document.querySelector("#high-today");
+  let lowTodayElement = document.querySelector("#low-today");
+
+  today.innerHTML = formatToday(response.data.daily[0].time);
+  highTodayElement.innerHTML = `Today's high: ${Math.round(
+    response.data.daily[0].temperature.maximum
+  )}°`;
+  lowTodayElement.innerHTML = `Today's low: ${Math.round(
+    response.data.daily[0].temperature.minimum
+  )}°`;
+
+  let forecastHtml = "";
   response.data.daily.forEach(function (day, index) {
-    if (index < 5) {
+    if (index >= 1 && index < 6) {
       forecastHtml =
         forecastHtml +
         `<div class="forecast-weather-day">
@@ -29,7 +50,9 @@ function addForecast(response) {
     }
   });
 
-  let forecastContainerElement = document.querySelector("#forecast-weather-container");
+  let forecastContainerElement = document.querySelector(
+    "#forecast-weather-container"
+  );
   forecastContainerElement.innerHTML = forecastHtml;
 }
 
@@ -37,31 +60,6 @@ function apiForecastSearch(city) {
   let apiKey = "tbfob32e017e01391b34fe15b81ad2a6";
   let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
   axios.get(apiUrl).then(addForecast);
-}
-
-function updateDateTime(now) {
-  let days = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-  ];
-  let day = days[now.getDay()];
-  let currentHour = now.getHours();
-  let currentMinutes = now.getMinutes();
-
-  if (currentHour < 10) {
-    currentHour = `0${currentHour}`;
-  }
-
-  if (currentMinutes < 10) {
-    currentMinutes = `0${currentMinutes}`;
-  }
-
-  return `${day} ${currentHour}:${currentMinutes}`;
 }
 
 function updateQuote(temp) {
@@ -89,8 +87,6 @@ function updateWeatherDetails(response) {
   let currentTimeElement = document.querySelector("#day-and-time");
   let icon = document.querySelector("#current-temp-icon");
   let weatherQuote = document.querySelector("#quote");
-  let apiTimeStamp = response.data.time;
-  let now = new Date(apiTimeStamp * 1000);
 
   cityElement.innerHTML = response.data.city;
   countryElement.innerHTML = response.data.country;
@@ -106,8 +102,6 @@ function updateWeatherDetails(response) {
   icon.innerHTML = `<img src = "${response.data.condition.icon_url}" class="current-temp-icon" />`;
 
   weatherQuote.innerHTML = updateQuote(temperatureElement.innerHTML);
-
-  currentTimeElement.innerHTML = updateDateTime(now);
 
   apiForecastSearch(response.data.city);
 }
@@ -137,10 +131,10 @@ function updateHeading() {
     headingElement.innerHTML = "Good Afternoon🌞!";
   } else if (currentHour >= 17 && currentHour < 21) {
     headingElement.innerHTML = "Good Evening🌆!";
-  } else{
+  } else {
     headingElement.innerHTML = "Good Night🌛!";
   }
-} 
+}
 
 updateHeading();
 
