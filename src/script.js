@@ -16,7 +16,7 @@ function formatToday(today){
 }
 
 function addForecast(response) {
-  let today = document.querySelector("#day-and-time");
+  let today = document.querySelector("#date");
   let highTodayElement = document.querySelector("#high-today");
   let lowTodayElement = document.querySelector("#low-today");
 
@@ -84,7 +84,7 @@ function updateWeatherDetails(response) {
   let realFeelElement = document.querySelector("#real-feel-temperature");
   let humidityElement = document.querySelector("#humidity");
   let windspeedElement = document.querySelector("#windspeed");
-  let currentTimeElement = document.querySelector("#day-and-time");
+  let currentTimeElement = document.querySelector("#date");
   let icon = document.querySelector("#current-temp-icon");
   let weatherQuote = document.querySelector("#quote");
 
