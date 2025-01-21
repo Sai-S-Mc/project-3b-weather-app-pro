@@ -135,7 +135,6 @@ function updateHeading() {
     headingElement.innerHTML = "Good Night🌛!";
   }
 }
-
 updateHeading();
 
 let searchForm = document.querySelector("#search-form");

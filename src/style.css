@@ -66,6 +66,11 @@ h1 {
   left: -10px;
   font-weight: 550;
 }
+.high-low {
+  font-size: 14px;
+  font-style: italic;
+  font-weight: 500;
+}
 .additional-weather-details {
   margin-top: 25px;
   padding-right: 10px;
