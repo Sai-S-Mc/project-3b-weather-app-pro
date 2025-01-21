@@ -437,8 +437,7 @@ body#colorful-theme {
   .current-temp-unit {
     font-size: 13px;
     top: -26px;
-    left: -13px;
-  }
+    }
   .high-low {
     font-style: normal;
   }
