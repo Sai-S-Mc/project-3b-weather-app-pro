@@ -10,6 +10,13 @@ body {
 h1 {
   text-align: center;
   font-size: 28px;
+  margin-bottom: 5px;
+}
+.user-greeting {
+  text-align: center;
+  margin-bottom: 15px;
+  font-size: 15px;
+  font-weight: 500;
 }
 .search-form {
   max-width: 60%;
@@ -163,6 +170,9 @@ body#home-page-minimal {
 #home-page-minimal h1 {
   color: rgb(15, 15, 15);
 }
+#home-page-minimal .user-greeting {
+  color: #818181;
+}
 #home-page-minimal .search-form-input {
   background-color: #dadadace;
 }
@@ -294,7 +304,7 @@ body#dark-theme {
 }
 
 body#colorful-theme {
-   background: linear-gradient(
+  background: linear-gradient(
     179.2deg,
     rgb(34, 34, 34) 0%,
     rgb(8, 0, 153, 0.858) 29.7%,
@@ -442,7 +452,7 @@ body#colorful-theme {
   .current-temp-unit {
     font-size: 13px;
     top: -26px;
-    }
+  }
   .high-low {
     font-style: normal;
   }
