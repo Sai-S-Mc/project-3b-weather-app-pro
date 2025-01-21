@@ -289,12 +289,12 @@ body#dark-theme {
 }
 
 body#colorful-theme {
-  background: linear-gradient(
+   background: linear-gradient(
     179.2deg,
     rgb(34, 34, 34) 0%,
-    rgb(8, 0, 153) 29.7%,
-    rgb(118, 6, 166) 63.4%,
-    rgba(233, 0, 64, 0.58) 100.1%
+    rgb(8, 0, 153, 0.858) 29.7%,
+    rgb(118, 6, 166, 0.858) 63.4%,
+    rgba(233, 0, 64, 0.48) 100.1%
   );
 }
 #colorful-theme .weather-app-container {
