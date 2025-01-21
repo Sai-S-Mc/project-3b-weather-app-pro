@@ -120,22 +120,22 @@ function handleSearch(event) {
   apiCitySearch(userInput);
 }
 
-function updateHeading() {
+function updateGreeting() {
   let timeNow = new Date();
   let currentHour = timeNow.getHours();
-  let headingElement = document.querySelector("#heading");
+  let greetingElement = document.querySelector("#user-greeting");
 
   if (currentHour >= 5 && currentHour < 12) {
-    headingElement.innerHTML = "Good Morning🌅!";
+    greetingElement.innerHTML = "Good Morning🌅!";
   } else if (currentHour >= 12 && currentHour < 17) {
-    headingElement.innerHTML = "Good Afternoon🌞!";
+    greetingElement.innerHTML = "Good Afternoon🌞!";
   } else if (currentHour >= 17 && currentHour < 21) {
-    headingElement.innerHTML = "Good Evening🌆!";
+    greetingElement.innerHTML = "Good Evening🌆!";
   } else {
-    headingElement.innerHTML = "Good Night🌛!";
+    greetingElement.innerHTML = "Good Night🌛!";
   }
 }
-updateHeading();
+updateGreeting();
 
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", handleSearch);
