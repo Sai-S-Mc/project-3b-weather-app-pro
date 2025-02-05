@@ -307,9 +307,9 @@ body#colorful-theme {
   background: linear-gradient(
     179.2deg,
     rgb(34, 34, 34) 0%,
-    rgb(8, 0, 153, 0.858) 29.7%,
-    rgb(118, 6, 166, 0.858) 63.4%,
-    rgba(233, 0, 64, 0.48) 100.1%
+    rgb(8, 0, 153, 0.8) 29.7%,
+    rgb(118, 6, 166, 0.6) 63.4%,
+    rgba(233, 0, 64, 0.4) 100.1%
   );
 }
 #colorful-theme .weather-app-container {
@@ -355,7 +355,8 @@ body#colorful-theme {
   box-shadow: 5px 5px 5px #7277af;
 }
 #colorful-theme .minimal-button {
-  background-color: #cbcaca;
+  background-color: #F1F1F1;
+  color: #4e4e4e;
 }
 #colorful-theme .minimal-button:hover {
   background-color: #c14498;
