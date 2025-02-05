@@ -33,7 +33,7 @@ h1 {
   margin-left: 2px;
   margin-right: 2px;
   border: none;
-  outline: 1px solid #7b7b7b39;
+  outline: 1px solid #a7a7a739;
 }
 .search-form-button {
   border: none;
@@ -161,10 +161,10 @@ footer a:hover {
 }
 
 body#home-page-minimal {
-  background-color: rgba(211, 211, 211, 0.62);
+  background-color: #f1f1f1;
 }
 #home-page-minimal .weather-app-container {
-  background-color: azure;
+  background-color: white;
   box-shadow: 0 30px 50px rgba(65, 50, 100, 0.08);
 }
 #home-page-minimal h1 {
@@ -174,7 +174,7 @@ body#home-page-minimal {
   color: #818181;
 }
 #home-page-minimal .search-form-input {
-  background-color: #dadadace;
+  background-color: #f1f1f1;
 }
 #home-page-minimal .search-form-button {
   color: #f0ffff;
@@ -184,20 +184,20 @@ body#home-page-minimal {
   background-color: rgba(0, 0, 0, 0.937);
 }
 #home-page-minimal main {
-  border-top: 2px solid #dee1e1;
-  border-bottom: 2px solid #dee1e1;
+  border-top: 2px solid #f1f1f1;
+  border-bottom: 2px solid #f1f1f1;
 }
 #home-page-minimal #date {
   color: #808080b7;
 }
 #home-page-minimal .current-temp-icon {
-  background-color: #d6d6d6c7;
+  background-color: #f1f1f1;
 }
 #home-page-minimal .additional-weather-details {
   color: #818181;
 }
 #home-page-minimal p {
-  border-bottom: 2px solid #dee1e1;
+  border-bottom: 2px solid #f1f1f1;
   color: #818181;
 }
 #home-page-minimal .high-low {
@@ -205,19 +205,19 @@ body#home-page-minimal {
   color: #818181;
 }
 #home-page-minimal .forecast-weather-day {
-  border-right: 2px solid #dee1e1;
-  border-left: 2px solid #dee1e1;
+  border-right: 2px solid #f1f1f1;
+  border-left: 2px solid #f1f1f1;
   color: #818181;
 }
 #home-page-minimal .forecast-weather-temperature-high {
   color: #706e6e;
 }
 #home-page-minimal .forecast-weather-icon {
-  background-color: #d6d6d6c7;
+  background-color: #f1f1f1;
 }
 #home-page-minimal .themes {
   color: #818181;
-  border-top: 2px solid #dee1e1;
+  border-top: 2px solid #f1f1f1;
 }
 #home-page-minimal .theme-button {
   box-shadow: 5px 5px 5px #c0bec0;
@@ -479,7 +479,7 @@ body#colorful-theme {
     border-radius: 10px;
   }
   #home-page-minimal .forecast-weather-day {
-    border: 2px solid #dee1e1;
+    border: 2px solid #f1f1f1;
     color: #818181;
     box-shadow: 3px 3px 10px rgba(149, 89, 89, 0.393);
   }
