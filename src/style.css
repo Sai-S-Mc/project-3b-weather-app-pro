@@ -283,7 +283,8 @@ body#dark-theme {
   box-shadow: 5px 5px 5px #000000;
 }
 #dark-theme .minimal-button {
-  background-color: #cbcaca;
+  background-color: #F1F1F1;
+  color: #353535;
 }
 #dark-theme .minimal-button:hover {
   background-color: #00000091;
