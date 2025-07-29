@@ -3,8 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Explore current global weather conditions and forecasts using this interactive website developed by Sai Satti. This webpage has a minimal theme.">
-    <title>My Weather App - Homepage ~ Sai Satti </title>
+    <meta
+      name="description"
+      content="Explore current global weather conditions and forecasts using this interactive website developed by Sai Satti. This webpage has a minimal theme."
+    />
+    <title>My Weather App - Homepage ~ Sai Satti</title>
     <link rel="stylesheet" href="src/style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -27,16 +30,19 @@
             autofocus
             class="search-form-input"
             id="search-form-input"
+            required
+            autofocus
           />
           <input type="submit" value="Search" class="search-form-button" />
         </form>
       </header>
+
       <main>
         <div class="weather-details">
           <div>
             <div class="location-details">
-              <span class="city" id="city"></span>,
-              <span class="country" id="country"></span>
+              <span id="city"></span>,
+              <span id="country"></span>
             </div>
             <small id="date"></small>
             <br />
@@ -64,7 +70,11 @@
         <div class="themes">
           <div>
             Fancy a dark theme?
-            <a href="/themes/dark-theme.html" title="Dark theme" class="theme-button dark-button">
+            <a
+              href="/themes/dark-theme.html"
+              title="Dark theme"
+              class="theme-button dark-button"
+            >
               Dark
             </a>
           </div>
@@ -83,7 +93,12 @@
 
       <footer>
         This project was coded and designed by
-        <a href="https://github.com/Sai-S-Mc" target="_blank" title="Sai's GitHub Profile">Sai-S-Mc</a>
+        <a
+          href="https://github.com/Sai-S-Mc"
+          target="_blank"
+          title="Sai's GitHub Profile"
+          >Sai-S-Mc</a
+        >
         , is
         <a
           href="https://github.com/Sai-S-Mc/project-3b-weather-app-pro"
