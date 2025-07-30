@@ -5,31 +5,54 @@ function formatForecastDay(timestamp) {
   return day;
 }
 
-function formatToday(today){
-  let now = new Date(today*1000);
-  let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+function formatToday(apiTimeStamp) {
+  let now = new Date(apiTimeStamp * 1000);
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
   let day = days[now.getDay()];
-  let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  let months = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
   let month = months[now.getMonth()];
   let date = now.getDate();
   return `${day}, ${month} ${date}`;
 }
 
 function addForecast(response) {
+  let forecastApiResponse = response.data;
   let today = document.querySelector("#date");
-  let highTodayElement = document.querySelector("#high-today");
-  let lowTodayElement = document.querySelector("#low-today");
+  today.innerHTML = `Local Date : ${formatToday(forecastApiResponse.daily[0].time)}`;
 
-  today.innerHTML = formatToday(response.data.daily[0].time);
+  let highTodayElement = document.querySelector("#high-today");
   highTodayElement.innerHTML = `Today's high: ${Math.round(
-    response.data.daily[0].temperature.maximum
+    forecastApiResponse.daily[0].temperature.maximum
   )}°`;
+
+  let lowTodayElement = document.querySelector("#low-today");
   lowTodayElement.innerHTML = `Today's low: ${Math.round(
-    response.data.daily[0].temperature.minimum
+    forecastApiResponse.daily[0].temperature.minimum
   )}°`;
 
   let forecastHtml = "";
-  response.data.daily.forEach(function (day, index) {
+  forecastApiResponse.daily.forEach(function (day, index) {
     if (index >= 1 && index < 6) {
       forecastHtml =
         forecastHtml +
@@ -63,47 +86,54 @@ function apiForecastSearch(city) {
 }
 
 function updateQuote(temp) {
-  if (temp <= 10) {
-    return `" <em>Keep warm</em> ♨️🧦"`;
-  } else if (temp > 10 && temp < 20) {
-    return `" <em>Tad bit chilly</em> 🍃🧥"`;
-  } else if (temp >= 20 && temp <= 30) {
-    return `" <em>Enjoy the warm weather</em> 🌦️☀️"`;
+  if (temp <= 30) {
+    if (temp <= 10) {
+      return `<em>Keep warm</em> ♨️🧦`;
+    } else if (temp < 20) {
+      return ` <em>Tad bit chilly</em> 🍃🧥`;
+    }
+    return ` <em>Enjoy the warm weather</em> 🌦️☀️`;
   } else {
-    return `" <em>Remember to stay hydrated</em> 💧🕶️"`;
+    return `<em>Remember to stay hydrated</em> 💧🕶️`;
   }
 }
 
 function updateWeatherDetails(response) {
+  let apiResponse = response.data;
   let cityElement = document.querySelector("#city");
+  cityElement.innerHTML = apiResponse.city;
+
   let countryElement = document.querySelector("#country");
+  countryElement.innerHTML = apiResponse.country;
+
   let temperatureElement = document.querySelector("#current-temperature");
+  temperatureElement.innerHTML = Math.round(apiResponse.temperature.current);
+
   let descriptionElement = document.querySelector("#weather-description");
-  let description = response.data.condition.description;
+  let description = apiResponse.condition.description;
   description = description.charAt(0).toUpperCase() + description.slice(1);
-  let realFeelElement = document.querySelector("#real-feel-temperature");
-  let humidityElement = document.querySelector("#humidity");
-  let windspeedElement = document.querySelector("#windspeed");
-  let currentTimeElement = document.querySelector("#date");
-  let icon = document.querySelector("#current-temp-icon");
-  let weatherQuote = document.querySelector("#quote");
-
-  cityElement.innerHTML = response.data.city;
-  countryElement.innerHTML = response.data.country;
-  temperatureElement.innerHTML = Math.round(response.data.temperature.current);
   descriptionElement.innerHTML = description;
-  realFeelElement.innerHTML = `Feels like : <strong>${Math.round(
-    response.data.temperature.feels_like
-  )}°C</strong>`;
-  humidityElement.innerHTML = `Humidity : <strong>${response.data.temperature.humidity}%</strong>`;
-  windspeedElement.innerHTML = `Windspeed : <strong>${Math.round(
-    response.data.wind.speed
-  )} km/h</strong>`;
-  icon.innerHTML = `<img src = "${response.data.condition.icon_url}" class="current-temp-icon" />`;
 
+  let realFeelElement = document.querySelector("#real-feel-temperature");
+  realFeelElement.innerHTML = `Feels like : <strong>${Math.round(
+    apiResponse.temperature.feels_like
+  )}°C</strong>`;
+
+  let humidityElement = document.querySelector("#humidity");
+  humidityElement.innerHTML = `Humidity : <strong>${apiResponse.temperature.humidity}%</strong>`;
+
+  let windspeedElement = document.querySelector("#windspeed");
+  windspeedElement.innerHTML = `Windspeed : <strong>${Math.round(
+    apiResponse.wind.speed
+  )} km/h</strong>`;
+
+  let icon = document.querySelector("#current-temp-icon");
+  icon.innerHTML = `<img src = "${apiResponse.condition.icon_url}" class="current-temp-icon" />`;
+
+  let weatherQuote = document.querySelector("#quote");
   weatherQuote.innerHTML = updateQuote(temperatureElement.innerHTML);
 
-  apiForecastSearch(response.data.city);
+  apiForecastSearch(apiResponse.city);
 }
 
 function apiCitySearch(city) {
@@ -120,21 +150,26 @@ function handleSearch(event) {
   apiCitySearch(userInput);
 }
 
+function determineGreeting(hour) {
+  if (hour >= 5 && hour < 21) {
+    if (hour < 12) {
+      return "Good Morning🌅!";
+    } else if (hour < 17) {
+      return "Good Afternoon🌞!";
+    }
+    return "Good Evening🌆!";
+  } else {
+    return "Good Night🌛!";
+  }
+}
+
 function updateGreeting() {
   let timeNow = new Date();
   let currentHour = timeNow.getHours();
   let greetingElement = document.querySelector("#user-greeting");
-
-  if (currentHour >= 5 && currentHour < 12) {
-    greetingElement.innerHTML = "Good Morning🌅!";
-  } else if (currentHour >= 12 && currentHour < 17) {
-    greetingElement.innerHTML = "Good Afternoon🌞!";
-  } else if (currentHour >= 17 && currentHour < 21) {
-    greetingElement.innerHTML = "Good Evening🌆!";
-  } else {
-    greetingElement.innerHTML = "Good Night🌛!";
-  }
+  greetingElement.innerHTML = determineGreeting(currentHour);
 }
+
 updateGreeting();
 
 let searchForm = document.querySelector("#search-form");
