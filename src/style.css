@@ -5,6 +5,8 @@
   --dark-bg-color: #000000f9;
   --dark-border: 1px solid #000000f9;
   --dark-primary-text: #8c8c8c;
+  --colorful-border: 1px solid #a8b0dc;
+  --colorful-primary-text: #16125b;
 }
 body {
   font-family: "Mona Sans", sans-serif;
@@ -159,6 +161,7 @@ footer {
 }
 footer a {
   transition: all ease-in-out 800ms;
+  font-weight: 500;
 }
 footer a:hover {
   font-size: 13.2px;
@@ -302,63 +305,56 @@ body#colorful-theme {
 #colorful-theme .weather-app-container {
   background: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);
   box-shadow: 0 30px 50px rgba(65, 50, 100, 0.08);
-  color: #16125b;
+  color: var(--colorful-primary-text);
 }
 #colorful-theme .search-form-input {
   background-color: #b8c4fc;
 }
 #colorful-theme .search-form-button {
   color: #f0ffff;
-  background-color: #16125b;
+  background-color: var(--colorful-primary-text);
 }
 #colorful-theme .search-form-button:hover {
   background-color: #9fa6d0;
-  color: #16125b;
+  color: var(--colorful-primary-text);
 }
 #colorful-theme main {
-  border-top: 1px solid #a8b0dc;
-  border-bottom: 1px solid #a8b0dc;
+  border-top: var(--colorful-border);
+  border-top: var(--colorful-border);
+  border-bottom: var(--colorful-border);
 }
-#colorful-theme #date {
-  color: #16125be9;
-}
+#colorful-theme #date,
 #colorful-theme .additional-weather-details {
-  color: #16125be9;
+  opacity: 0.9;
 }
 #colorful-theme p {
-  color: #16125be9;
-  border-bottom: 1px solid #a8b0dc;
+  border-bottom: var(--colorful-border);
 }
 #colorful-theme .forecast-weather-day {
-  color: #16125be9;
-  border-left: 1px solid #a8b0dc;
-  border-right: 1px solid #a8b0dc;
+  border-left: var(--colorful-border);
+  border-right: var(--colorful-border);
 }
 #colorful-theme .themes {
-  color: #16125be9;
-  border-top: 1px solid #a8b0dc;
+  border-top: var(--colorful-border);
 }
 #colorful-theme .theme-button {
   box-shadow: 5px 5px 5px #7277af;
 }
 #colorful-theme .minimal-button {
   background-color: var(--minimal-bg-color);
-  color: #4e4e4e;
-}
-#colorful-theme .minimal-button:hover {
-  background-color: #c14498;
-  color: #cbcaca;
+  color: var(--minimal-primary-text);
 }
 #colorful-theme .dark-button {
-  color: #8c8c8c;
-  background-color: #111111;
+  color: var(--dark-primary-text);
+  background-color: var(--dark-bg-color);
 }
+#colorful-theme .minimal-button:hover,
 #colorful-theme .dark-button:hover {
   background-color: #c14498;
   color: #cbcaca;
 }
 #colorful-theme footer {
-  color: #16125be9;
+  opacity: 0.9;
 }
 #colorful-theme footer a {
   color: #800ea4;
@@ -473,7 +469,6 @@ body#colorful-theme {
     box-shadow: 3px 3px 10px rgba(96, 96, 96, 0.393);
   }
   #colorful-theme .forecast-weather-day {
-    border: 1px solid #a8b0dc;
     box-shadow: 3px 3px 10px rgba(40, 40, 40, 0.393);
   }
   .forecast-weather-temperatures {
