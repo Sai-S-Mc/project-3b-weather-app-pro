@@ -1,7 +1,10 @@
 :root {
   --minimal-bg-color: #f1f1f1;
   --minimal-primary-text: rgb(15, 15, 15);
-  --minimal-muted-text: #818181
+  --minimal-muted-text: #818181;
+  --dark-bg-color: #000000f9;
+  --dark-border: 1px solid #000000f9;
+  --dark-primary-text: #8c8c8c;
 }
 body {
   font-family: "Mona Sans", sans-serif;
@@ -228,46 +231,42 @@ body#home-page-minimal,
   color: black;
 }
 #home-page-minimal footer {
-  color: var(--minimal-muted-text)
+  color: var(--minimal-muted-text);
 }
 #home-page-minimal footer a {
-  color: var(--minimal-primary-text)
+  color: var(--minimal-primary-text);
 }
 
 body#dark-theme {
-  background-color: #000000f9;
+  background-color: var(--dark-bg-color);
 }
 #dark-theme .weather-app-container {
-  color: #8c8c8c;
-  background-color: #111111f9;
+  color: var(--dark-primary-text);
+  background-color: #1e1e1ef9;
 }
-#dark-theme .search-form-input {
-  background-color: #00000091;
+#dark-theme .search-form-input,
+#dark-theme .search-form-button {
+  background-color: var(--dark-bg-color);
 }
 #dark-theme .search-form-button {
   color: #8c8c8c;
-  background-color: #00000091;
 }
 #dark-theme .search-form-button:hover {
   background-color: rgba(35, 35, 35, 0.836);
 }
-#dark-theme main {
-  border-top: 2px solid #0c0c0c;
-  border-bottom: 2px solid #0c0c0c;
-}
+#dark-theme main,
 #dark-theme p {
-  border-bottom: 2px solid #0c0c0c;
+  border-bottom: var(--dark-border);
+}
+#dark-theme main {
+  border-top: var(--dark-border);
 }
 #dark-theme .forecast-weather-day {
-  border-left: 2px solid #0c0c0c;
-  border-right: 2px solid #0c0c0c;
-}
-#dark-theme .forecast-weather-temperature-high {
-  color: #999898;
+  border-left: var(--dark-border);
+  border-right: var(--dark-border);
 }
 #dark-theme .themes {
-  border-top: 2px solid #0c0c0c;
-  color: #818181;
+  border-top: var(--dark-border);
 }
 #dark-theme .theme-button {
   box-shadow: 5px 5px 5px #000000;
@@ -276,22 +275,19 @@ body#dark-theme {
   background-color: var(--minimal-bg-color);
   color: #353535;
 }
-#dark-theme .minimal-button:hover {
-  background-color: #00000091;
-  color: #cbcaca;
-}
 #dark-theme .color-button {
   background: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);
 }
+#dark-theme .minimal-button:hover,
 #dark-theme .color-button:hover {
   background: #00000091;
   color: #cbcaca;
 }
 #dark-theme footer {
-  color: #767676;
+  opacity: 0.8;
 }
 #dark-theme footer a {
-  color: #a1a1a1;
+  color: #c0c0c0;
 }
 
 body#colorful-theme {
@@ -471,17 +467,13 @@ body#colorful-theme {
     border-radius: 10px;
   }
   #home-page-minimal .forecast-weather-day {
-    border: 2px solid var(--minimal-bg-color);
-    box-shadow: 3px 3px 10px rgba(149, 89, 89, 0.393);
+    box-shadow: 3px 3px 10px rgba(141, 140, 140, 0.393);
   }
   #dark-theme .forecast-weather-day {
-    border: 2px solid #0c0c0c;
-    color: #818181;
-    box-shadow: 3px 3px 10px rgba(40, 40, 40, 0.393);
+    box-shadow: 3px 3px 10px rgba(96, 96, 96, 0.393);
   }
   #colorful-theme .forecast-weather-day {
     border: 1px solid #a8b0dc;
-    color: #16125be9;
     box-shadow: 3px 3px 10px rgba(40, 40, 40, 0.393);
   }
   .forecast-weather-temperatures {
