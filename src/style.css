@@ -365,15 +365,16 @@ body#colorful-theme {
   }
 }
 @media (max-width: 480px) {
-  .search-form-input {
+  .search-form-input, .search-form-button {
     display: block;
-    margin: 0 auto;
     font-size: 12px;
   }
+  .search-form-input{
+    margin: 0 auto;
+
+  }
   .search-form-button {
-    display: block;
     margin: 8px auto 0;
-    font-size: 12px;
   }
   h1 {
     font-size: 26px;
@@ -383,7 +384,6 @@ body#colorful-theme {
   }
   .current-temp-icon {
     width: 60px;
-    height: 60px;
   }
   .current-temp-value {
     top: -15px;
@@ -405,7 +405,6 @@ body#colorful-theme {
   }
   .forecast-weather-icon {
     width: 55px;
-    height: 55px;
   }
   footer {
     padding: 0 50px;
@@ -427,7 +426,6 @@ body#colorful-theme {
   }
   .current-temp-icon {
     width: 40px;
-    height: 40px;
   }
   .current-temp-value {
     top: -10px;
