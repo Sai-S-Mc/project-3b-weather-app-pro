@@ -222,8 +222,8 @@ body#home-page-minimal,
   box-shadow: 5px 5px 5px #c0bec0;
 }
 #home-page-minimal .dark-button {
-  color: #8c8c8c;
-  background-color: #111111;
+  color: var(--dark-primary-text);
+  background-color: var(--dark-bg-color);
 }
 #home-page-minimal .color-button {
   background: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);
@@ -276,7 +276,7 @@ body#dark-theme {
 }
 #dark-theme .minimal-button {
   background-color: var(--minimal-bg-color);
-  color: #353535;
+  color: var(--minimal-primary-text);
 }
 #dark-theme .color-button {
   background: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);
