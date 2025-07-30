@@ -17,6 +17,7 @@ body {
   margin: 50px auto;
   padding: 10px;
   border-radius: 20px;
+  font-size : 15px
 }
 h1,
 .user-greeting {
@@ -28,23 +29,23 @@ h1 {
 }
 .user-greeting {
   margin-bottom: 15px;
-  font-size: 15px;
   font-weight: 500;
 }
 .search-form {
-  max-width: 60%;
-  margin: 0 auto 10px;
+  margin: 30px auto;
+  display: flex;
+  justify-content: center;
 }
 .search-form-input,
 .search-form-button {
-  padding: 5px;
+  padding: 10px;
   border-radius: 5px;
-  font-size: 14px;
+  font-size: 13px;
   border: none;
 }
 .search-form-input {
   width: 72%;
-  margin: 0 2px;
+  margin-right: 5px;
   outline: 1px solid #a7a7a739;
 }
 .search-form-button {
@@ -86,17 +87,12 @@ p {
 .current-temp-unit {
   top: -54px;
 }
-.high-low,
-p {
-  font-size: 14px;
-}
 .high-low {
   font-style: italic;
 }
 .additional-weather-details {
   margin-top: 25px;
   padding-right: 10px;
-  font-size: 15px;
 }
 p {
   text-align: center;
@@ -116,7 +112,6 @@ p {
   padding: 0 20px;
 }
 .forecast-weather-day-name {
-  font-size: 15px;
   margin-bottom: 10px;
 }
 .forecast-weather-icon {
@@ -361,22 +356,15 @@ body#colorful-theme {
 #colorful-theme footer a {
   color: #800ea4;
 }
-@media (max-width: 580px) {
+@media (max-width: 680px) {
   .forecast-weather-day {
     padding: 0 10px;
+    font-size: 13px;
   }
 }
-@media (max-width: 480px) {
-  .search-form-input,
-  .search-form-button {
-    display: block;
-    font-size: 12px;
-  }
-  .search-form-input {
-    margin: 0 auto;
-  }
-  .search-form-button {
-    margin: 8px auto 0;
+@media (max-width: 540px) {
+  .weather-app-container {
+    font-size: 13px;
   }
   h1 {
     font-size: 26px;
@@ -397,7 +385,6 @@ body#colorful-theme {
   .additional-weather-details {
     padding-right: 0;
     padding-left: 10px;
-    font-size: 14px;
   }
   .minimal-button {
     width: 38%;
@@ -412,12 +399,24 @@ body#colorful-theme {
     padding: 0 50px;
   }
 }
-@media (max-width: 400px) {
+@media (max-width: 450px) {
+  .search-form,
+  .weather-details {
+    flex-direction: column;
+  }
+  .search-form-input,
+  .search-form-button {
+    display: block;
+    margin: 0 auto;
+  }
+  .search-form-input {
+    text-align: center;
+    margin-bottom: 5px;
+  }
   h1 {
     font-size: 24px;
   }
   .weather-details {
-    flex-direction: column;
     text-align: center;
     margin: 5px 10px;
     padding-bottom: 5px;
