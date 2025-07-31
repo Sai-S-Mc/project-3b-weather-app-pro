@@ -148,8 +148,14 @@ function apiCitySearch(city) {
 function handleSearch(event) {
   event.preventDefault();
   let userInput = document.querySelector("#search-form-input").value;
-
-  apiCitySearch(userInput);
+  if (userInput) {
+    userInput = userInput.trim().toLowerCase();
+    if (userInput === "") {
+      alert("Spacebar is not a city. Yet.🚀");
+    } else {
+      apiCitySearch(userInput);
+    }
+  }
 }
 
 function determineGreeting(hour) {
