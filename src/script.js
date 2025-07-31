@@ -39,15 +39,17 @@ function formatToday(apiTimeStamp) {
 function addForecast(response) {
   let forecastApiResponse = response.data;
   let today = document.querySelector("#date");
-  today.innerHTML = `Local Date : ${formatToday(forecastApiResponse.daily[0].time)}`;
+  today.innerHTML = `Local Date : ${formatToday(
+    forecastApiResponse.daily[0].time
+  )}`;
 
   let highTodayElement = document.querySelector("#high-today");
-  highTodayElement.innerHTML = `Today's high: ${Math.round(
+  highTodayElement.innerHTML = `<span class="hide-word">Today's </span>high : ${Math.round(
     forecastApiResponse.daily[0].temperature.maximum
   )}°`;
 
   let lowTodayElement = document.querySelector("#low-today");
-  lowTodayElement.innerHTML = `Today's low: ${Math.round(
+  lowTodayElement.innerHTML = `<span class="hide-word">Today's </span>low : ${Math.round(
     forecastApiResponse.daily[0].temperature.minimum
   )}°`;
 

@@ -74,8 +74,7 @@ h1 {
   font-weight: 600;
   max-width: 300px;
 }
-#date,
-.right-float {
+#date {
   opacity: 0.9;
 }
 .current-temp-icon {
@@ -96,6 +95,9 @@ h1 {
 }
 .high-low {
   font-style: italic;
+}
+hr {
+  display: none;
 }
 .right-float {
   margin-top: 25px;
@@ -216,6 +218,9 @@ body#home-page-minimal,
 #home-page-minimal .high-low {
   margin-top: 5px;
 }
+#home-page-minimal hr {
+  border: 1px dashed var(--minimal-bg-color);
+}
 #home-page-minimal p {
   border-bottom: 2px solid var(--minimal-bg-color);
 }
@@ -287,6 +292,9 @@ body#dark-theme {
 #dark-theme main {
   border-top: var(--dark-border);
 }
+#dark-theme hr {
+  border: 1px dashed var(--dark-primary-text);
+}
 #dark-theme .forecast-weather-day {
   border-left: var(--dark-border);
   border-right: var(--dark-border);
@@ -355,6 +363,9 @@ body#colorful-theme {
   border-top: var(--colorful-border);
   border-bottom: var(--colorful-border);
 }
+#colorful-theme hr {
+  border: 1px dashed var(--colorful-primary-text);
+}
 #colorful-theme p {
   border-bottom: var(--colorful-border);
 }
@@ -383,12 +394,12 @@ body#colorful-theme {
 }
 #colorful-theme footer a {
   color: #800ea4;
-  color: #8B5AC2;
-  color: #714DB8;
+  color: #8b5ac2;
+  color: #714db8;
   color: #800080;
 }
 #colorful-theme footer a:hover {
-  background-color: #DCC3FC;
+  background-color: #dcc3fc;
 }
 @media (max-width: 680px) {
   .forecast-weather-day {
@@ -418,7 +429,6 @@ body#colorful-theme {
   }
   .right-float {
     padding-right: 0;
-    padding-left: 10px;
   }
   .minimal-button {
     width: 38%;
@@ -472,10 +482,22 @@ body#colorful-theme {
   }
   .high-low {
     font-style: normal;
+    display: flex;
+    justify-content: space-evenly;
+    text-transform: capitalize;
+    opacity: 0.8;
+  }
+  .hide-word {
+    display: none;
   }
   .forecast-weather-temperature-high,
   .forecast-weather-temperature-low {
     margin: 0 10px;
+  }
+  hr {
+    display: block;
+    width: 30%;
+    margin-top: 20px;
   }
   .right-float {
     margin-top: 10px;
