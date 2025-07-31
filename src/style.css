@@ -65,6 +65,7 @@ h1 {
 .weather-details {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 40px 20px;
   line-height: 24px;
 }
@@ -72,6 +73,10 @@ h1 {
   font-size: 20px;
   font-weight: 600;
   max-width: 300px;
+}
+#date,
+.right-float {
+  opacity: 0.9;
 }
 .current-temp-icon {
   width: 80px;
@@ -92,7 +97,7 @@ h1 {
 .high-low {
   font-style: italic;
 }
-.additional-weather-details {
+.right-float {
   margin-top: 25px;
   padding-right: 10px;
 }
@@ -346,10 +351,6 @@ body#colorful-theme {
   border-top: var(--colorful-border);
   border-bottom: var(--colorful-border);
 }
-#colorful-theme #date,
-#colorful-theme .additional-weather-details {
-  opacity: 0.9;
-}
 #colorful-theme p {
   border-bottom: var(--colorful-border);
 }
@@ -408,7 +409,7 @@ body#colorful-theme {
   .current-temp-unit {
     top: -38px;
   }
-  .additional-weather-details {
+  .right-float {
     padding-right: 0;
     padding-left: 10px;
   }
@@ -469,7 +470,7 @@ body#colorful-theme {
   .forecast-weather-temperature-low {
     margin: 0 10px;
   }
-  .additional-weather-details {
+  .right-float {
     margin-top: 10px;
   }
   p#quote {
