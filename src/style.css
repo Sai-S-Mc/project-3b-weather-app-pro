@@ -161,15 +161,16 @@ footer {
   text-align: center;
   margin: 20px auto;
   padding: 0 30px;
+  opacity: 0.9;
 }
 footer a {
   transition: all ease-in-out 800ms;
+  line-height: 2;
   font-weight: 500;
 }
 footer a:hover {
-  font-size: 13.2px;
-  cursor: pointer;
-  font-weight: 500;
+  padding: 0 4px 2px;
+  border-radius: 5px;
 }
 
 body#home-page-minimal,
@@ -240,7 +241,7 @@ body#home-page-minimal,
 }
 #home-page-minimal .dark-button:hover,
 #home-page-minimal .color-button:hover {
-  background: rgba(160, 160, 160, 0.937);
+  background: rgba(194, 194, 194, 0.7);
   color: black;
 }
 #home-page-minimal footer {
@@ -248,6 +249,9 @@ body#home-page-minimal,
 }
 #home-page-minimal footer a {
   color: var(--minimal-primary-text);
+}
+#home-page-minimal footer a:hover {
+  background-color: #c7c7c7;
 }
 
 body#dark-theme {
@@ -305,11 +309,11 @@ body#dark-theme {
   background: #00000091;
   color: #cbcaca;
 }
-#dark-theme footer {
-  opacity: 0.8;
-}
 #dark-theme footer a {
   color: #c0c0c0;
+}
+#dark-theme footer a:hover {
+  background-color: black;
 }
 
 body#colorful-theme {
@@ -377,11 +381,14 @@ body#colorful-theme {
   background-color: #c14498;
   color: #cbcaca;
 }
-#colorful-theme footer {
-  opacity: 0.9;
-}
 #colorful-theme footer a {
   color: #800ea4;
+  color: #8B5AC2;
+  color: #714DB8;
+  color: #800080;
+}
+#colorful-theme footer a:hover {
+  background-color: #DCC3FC;
 }
 @media (max-width: 680px) {
   .forecast-weather-day {
