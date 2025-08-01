@@ -101,41 +101,51 @@ function updateQuote(temp) {
 }
 
 function updateWeatherDetails(response) {
-  let apiResponse = response.data;
-  let cityElement = document.querySelector("#city");
-  cityElement.innerHTML = apiResponse.city;
+  if (response.data.message) {
+    let content = document.querySelector("main");
+    content.innerHTML = `<section>We asked the weather, and it shrugged.</br>Please check the spelling and try again.<br/><button class= "primary-button" id = "continue-button">Continue</button></section>`;
+    let continueButtonElement = document.querySelector("#continue-button");
+    continueButtonElement.addEventListener("click", () => {
+      location.reload();
+    });
+  } else {
+    let apiResponse = response.data;
+    let cityElement = document.querySelector("#city");
+    cityElement.innerHTML = apiResponse.city;
 
-  let countryElement = document.querySelector("#country");
-  countryElement.innerHTML = apiResponse.country;
+    let countryElement = document.querySelector("#country");
+    countryElement.innerHTML = apiResponse.country;
 
-  let temperatureElement = document.querySelector("#current-temperature");
-  temperatureElement.innerHTML = Math.round(apiResponse.temperature.current);
+    let temperatureElement = document.querySelector("#current-temperature");
+    temperatureElement.innerHTML = Math.round(apiResponse.temperature.current);
 
-  let descriptionElement = document.querySelector("#weather-description");
-  let description = apiResponse.condition.description;
-  description = description.charAt(0).toUpperCase() + description.slice(1);
-  descriptionElement.innerHTML = description;
+    let descriptionElement = document.querySelector("#weather-description");
+    let description = apiResponse.condition.description;
+    description = description.charAt(0).toUpperCase() + description.slice(1);
+    descriptionElement.innerHTML = description;
 
-  let realFeelElement = document.querySelector("#real-feel-temperature");
-  realFeelElement.innerHTML = `Feels like : <strong>${Math.round(
-    apiResponse.temperature.feels_like
-  )}°C</strong>`;
+    let realFeelElement = document.querySelector("#real-feel-temperature");
+    realFeelElement.innerHTML = `Feels like : <strong>${Math.round(
+      apiResponse.temperature.feels_like
+    )}°C</strong>`;
 
-  let humidityElement = document.querySelector("#humidity");
-  humidityElement.innerHTML = `Humidity : <strong>${apiResponse.temperature.humidity}%</strong>`;
+    let humidityElement = document.querySelector("#humidity");
+    humidityElement.innerHTML = `Humidity : <strong>${apiResponse.temperature.humidity}%</strong>`;
 
-  let windspeedElement = document.querySelector("#windspeed");
-  windspeedElement.innerHTML = `Windspeed : <strong>${Math.round(
-    apiResponse.wind.speed
-  )} km/h</strong>`;
+    let windspeedElement = document.querySelector("#windspeed");
+    windspeedElement.innerHTML = `Windspeed : <strong>${Math.round(
+      apiResponse.wind.speed
+    )} km/h</strong>`;
 
-  let icon = document.querySelector("#current-temp-icon");
-  icon.innerHTML = `<img src = "${apiResponse.condition.icon_url}" class="current-temp-icon" />`;
+    let icon = document.querySelector("#current-temp-icon");
+    icon.innerHTML = `<img src = "${apiResponse.condition.icon_url}" class="current-temp-icon" />`;
 
-  let weatherQuote = document.querySelector("#quote");
-  weatherQuote.innerHTML = updateQuote(temperatureElement.innerHTML);
+    let weatherQuote = document.querySelector("#quote");
+    weatherQuote.innerHTML = updateQuote(temperatureElement.innerHTML);
 
-  apiForecastSearch(apiResponse.city);
+    apiForecastSearch(apiResponse.city);
+  }
+  console.log(response.data);
 }
 
 function apiCitySearch(city) {
@@ -183,4 +193,4 @@ updateGreeting();
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", handleSearch);
 
-apiCitySearch("Toronto");
+// apiCitySearch("Toronto");
