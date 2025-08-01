@@ -100,14 +100,26 @@ function updateQuote(temp) {
   }
 }
 
+function handleErrors(type) {
+  let content = document.querySelector("main");
+  let message;
+  if (type === "cityNotFound") {
+    message =
+      "We asked the weather, and it shrugged.</br>Please check the spelling and try again.<br/>";
+  } else {
+    message =
+      "Cloudy with a chance of errors.</br>Please try again later!</br>";
+  }
+  content.innerHTML = `<section>${message}<button class= "primary-button" id = "continue-button">Continue</button></section>`;
+  let continueButtonElement = document.querySelector("#continue-button");
+  continueButtonElement.addEventListener("click", () => {
+    location.reload();
+  });
+}
+
 function updateWeatherDetails(response) {
   if (response.data.message) {
-    let content = document.querySelector("main");
-    content.innerHTML = `<section>We asked the weather, and it shrugged.</br>Please check the spelling and try again.<br/><button class= "primary-button" id = "continue-button">Continue</button></section>`;
-    let continueButtonElement = document.querySelector("#continue-button");
-    continueButtonElement.addEventListener("click", () => {
-      location.reload();
-    });
+    handleErrors("cityNotFound");
   } else {
     let apiResponse = response.data;
     let cityElement = document.querySelector("#city");
@@ -152,7 +164,12 @@ function apiCitySearch(city) {
   let apiKey = "tbfob32e017e01391b34fe15b81ad2a6";
   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
 
-  axios.get(apiUrl).then(updateWeatherDetails);
+  axios
+    .get(apiUrl)
+    .then(updateWeatherDetails)
+    .catch((error) => {
+      handleErrors(error);
+    });
 }
 
 function handleSearch(event) {
@@ -193,4 +210,4 @@ updateGreeting();
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", handleSearch);
 
-// apiCitySearch("Toronto");
+apiCitySearch("Toronto");
