@@ -62,7 +62,9 @@ function addForecast(response) {
       <div class="forecast-weather-day-name">${formatForecastDay(
         day.time
       )}</div>
-      <img src = "${day.condition.icon_url}" class="forecast-weather-icon"/>
+      <img src = ${day.condition.icon_url} alt=${day.condition.icon} title=${
+          day.condition.icon
+        } class="forecast-weather-icon"/>
       <div class="forecast-weather-temperatures">
       <div class="forecast-weather-temperature-high">${Math.round(
         day.temperature.maximum
@@ -116,8 +118,8 @@ function handleErrors(type) {
     location.reload();
   });
 
-  document.querySelector("#search-form").classList.add("hidden")
-  document.querySelector("#search-tip").classList.add("hidden")
+  document.querySelector("#search-form").classList.add("hidden");
+  document.querySelector("#search-tip").classList.add("hidden");
 }
 
 function updateWeatherDetails(response) {
@@ -153,7 +155,7 @@ function updateWeatherDetails(response) {
     )} km/h</strong>`;
 
     let icon = document.querySelector("#current-temp-icon");
-    icon.innerHTML = `<img src = "${apiResponse.condition.icon_url}" class="current-temp-icon" />`;
+    icon.innerHTML = `<img src = ${apiResponse.condition.icon_url} alt=${apiResponse.condition.icon} title=${apiResponse.condition.icon} class="current-temp-icon" alt= />`;
 
     let weatherQuote = document.querySelector("#quote");
     weatherQuote.innerHTML = updateQuote(temperatureElement.innerHTML);
