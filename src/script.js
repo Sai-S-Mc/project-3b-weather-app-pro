@@ -103,11 +103,11 @@ function updateQuote(temp) {
 }
 
 function handleErrors(type) {
+  let userInput = document.querySelector("#search-form-input").value;
   let content = document.querySelector("main");
   let message;
   if (type === "cityNotFound") {
-    message =
-      "We asked the weather, and it shrugged.</br>Please check the spelling and try again.<br/>";
+    message = `You entered '<span class="highlight">${userInput}</span>'.</br>We asked the weather, and it shrugged.</br>Please check the spelling and try again.<br/>`;
   } else {
     message =
       "Cloudy with a chance of errors.</br>Please try again later!</br>";

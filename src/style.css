@@ -19,6 +19,9 @@ body {
   border-radius: 20px;
   font-size: 15px;
 }
+.highlight{
+  opacity:0.8
+}
 .hidden {
   display: none !important;
 }
@@ -196,6 +199,9 @@ body#home-page-minimal,
   box-shadow: 5px 5px 20px rgb(164 164 164);
   color: var(--minimal-muted-text);
 }
+#home-page-minimal .highlight {
+  color: var(--minimal-primary-text);
+}
 #home-page-minimal h1,
 #home-page-minimal .location-details,
 #home-page-minimal .current-temp-value,
@@ -279,6 +285,10 @@ body#dark-theme {
   background-color: #1e1e1ef9;
   box-shadow: 0 0 20px #bfbfbfdd;
 }
+#dark-theme .highlight {
+  color: rgb(172, 169, 169);
+  opacity: 1;
+}
 #dark-theme .search-form-input,
 #dark-theme .primary-button {
   background-color: var(--dark-primary-text);
@@ -349,6 +359,9 @@ body#colorful-theme {
   background: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);
   box-shadow: 5px 5px 20px rgb(0 0 0 / 50%);
   color: var(--colorful-primary-text);
+}
+#colorful-theme .highlight {
+  color: #800020;
 }
 #colorful-theme .search-form-input,
 #colorful-theme .primary-button {
