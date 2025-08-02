@@ -19,6 +19,9 @@ body {
   border-radius: 20px;
   font-size: 15px;
 }
+.hidden {
+  display: none !important;
+}
 h1,
 .user-greeting {
   text-align: center;
@@ -209,7 +212,7 @@ body#home-page-minimal,
   -webkit-box-shadow: 0 0 0 30px var(--minimal-bg-color) inset !important;
   -webkit-text-fill-color: var(--minimal-primary-text);
 }
-#home-page-minimal .primary-button{
+#home-page-minimal .primary-button {
   color: #f0ffff;
   background-color: black;
 }

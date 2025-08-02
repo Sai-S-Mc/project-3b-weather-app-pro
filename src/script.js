@@ -115,6 +115,9 @@ function handleErrors(type) {
   continueButtonElement.addEventListener("click", () => {
     location.reload();
   });
+
+  document.querySelector("#search-form").classList.add("hidden")
+  document.querySelector("#search-tip").classList.add("hidden")
 }
 
 function updateWeatherDetails(response) {
