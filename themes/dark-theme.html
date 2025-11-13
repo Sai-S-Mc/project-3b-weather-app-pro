@@ -33,7 +33,7 @@
             class="search-form-input"
             id="search-form-input"
           />
-          <button class="primary-button">Search</button>
+          <button type="submit" class="primary-button">Search</button>
         </form>
         <div class="search-tip" id="search-tip">
           Tip : When searching for namesake towns or cities, enter the name
@@ -42,36 +42,38 @@
         </div>
       </header>
       <main>
-        <div class="weather-details">
-          <div>
-            <div class="location-details">
-              <span id="city"></span>,
-              <span id="country"></span>
+        <section aria-live="polite">
+          <div class="weather-details">
+            <div>
+              <div class="location-details">
+                <span id="city"></span>,
+                <span id="country"></span>
+              </div>
+              <small id="date"></small>
+              <br />
+              <span id="current-temp-icon"></span>
+              <span class="current-temp-value" id="current-temperature"></span
+              ><span class="current-temp-unit">°C</span>
+              <br />
+              <div class="high-low">
+                <div class="high-today" id="high-today"></div>
+                <div class="low-today" id="low-today"></div>
+              </div>
             </div>
-            <small id="date"></small>
-            <br />
-            <span id="current-temp-icon"></span>
-            <span class="current-temp-value" id="current-temperature"></span
-            ><span class="current-temp-unit">°C</span>
-            <br />
-            <div class="high-low">
-              <div class="high-today" id="high-today"></div>
-              <div class="low-today" id="low-today"></div>
+            <hr />
+            <div class="right-float">
+              <div id="weather-description"></div>
+              <div id="real-feel-temperature"></div>
+              <div id="humidity"></div>
+              <div id="windspeed"></div>
             </div>
           </div>
-          <hr />
-          <div class="right-float">
-            <div id="weather-description"></div>
-            <div id="real-feel-temperature"></div>
-            <div id="humidity"></div>
-            <div id="windspeed"></div>
-          </div>
-        </div>
-        <p id="quote"></p>
-        <div
-          class="forecast-weather-container"
-          id="forecast-weather-container"
-        ></div>
+          <p id="quote"></p>
+          <div
+            class="forecast-weather-container"
+            id="forecast-weather-container"
+          ></div>
+        </section>
         <div class="themes">
           <div>
             Fancy a minimalistic light theme?

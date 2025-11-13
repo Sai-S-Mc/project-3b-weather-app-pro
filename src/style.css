@@ -74,10 +74,12 @@ h1 {
   font-size: 12px;
 }
 section {
-  text-align: center;
   padding: 30px 10px;
   font-weight: 500;
   font-size: 14px;
+}
+section.error {
+  text-align: center;
 }
 section .primary-button {
   margin-top: 20px;
@@ -214,8 +216,11 @@ body#home-page-minimal,
 #home-page-minimal .current-temp-unit {
   color: var(--minimal-primary-text);
 }
+#home-page-minimal .search-form-input {
+  border: 2px solid rgb(108, 108, 108);
+}
 #home-page-minimal .search-form-input:focus {
-  outline: 1px solid rgba(0, 0, 0, 0.593);
+  border-color: rgba(0, 0, 0, 0.926);
 }
 #home-page-minimal .search-form-input:-webkit-autofill,
 #home-page-minimal .search-form-input:-webkit-autofill:hover,
@@ -497,6 +502,9 @@ body#colorful-theme {
   }
   h1 {
     font-size: 24px;
+  }
+  section {
+    text-align: center;
   }
   .weather-details {
     text-align: center;

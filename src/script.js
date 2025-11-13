@@ -112,7 +112,7 @@ function handleErrors(type) {
     message =
       "Cloudy with a chance of errors.</br>Please try again later!</br>";
   }
-  content.innerHTML = `<section>${message}<button class= "primary-button" id = "continue-button">Continue</button></section>`;
+  content.innerHTML = `<section class="error" role="alert">${message}<button class= "primary-button" id = "continue-button">Continue</button></section>`;
   let continueButtonElement = document.querySelector("#continue-button");
   continueButtonElement.addEventListener("click", () => {
     location.reload();
@@ -162,7 +162,6 @@ function updateWeatherDetails(response) {
 
     apiForecastSearch(apiResponse.city);
   }
-  console.log(response.data);
 }
 
 function apiCitySearch(city) {

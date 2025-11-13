@@ -35,7 +35,7 @@
             required
             autofocus
           />
-          <button class="primary-button">Search</button>
+          <button type="submit" class="primary-button">Search</button>
         </form>
         <div class="search-tip" id="search-tip">
           Tip : When searching for namesake towns or cities, enter the name
@@ -45,11 +45,11 @@
       </header>
 
       <main>
-        <section aria-live="polite">
+        <section>
           <div class="weather-details">
             <div>
               <div class="location-details">
-                <span id="city"></span>,
+                <span id="city" aria-live="polite"></span>,
                 <span id="country"></span>
               </div>
               <small id="date"></small>
