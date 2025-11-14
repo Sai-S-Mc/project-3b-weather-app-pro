@@ -29,6 +29,11 @@ body {
 .hidden {
   display: none !important;
 }
+.scr-only {
+  position: absolute;
+  height: 1px;
+  overflow: hidden; 
+}
 h1,
 .user-greeting {
   text-align: center;

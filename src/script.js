@@ -1,21 +1,23 @@
-function formatForecastDay(timestamp) {
+let days = [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+];
+
+function formatForecastDay(timestamp, screenReader = false) {
   let then = new Date(timestamp * 1000);
-  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-  let day = days[then.getDay()];
-  return day;
+  let daysAbrreviation = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  if (!screenReader) {
+    return daysAbrreviation[then.getDay()];
+  } else return days[then.getDay()];
 }
 
 function formatToday(apiTimeStamp) {
   let now = new Date(apiTimeStamp * 1000);
-  let days = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-  ];
   let day = days[now.getDay()];
   let months = [
     "Jan",
@@ -59,17 +61,27 @@ function addForecast(response) {
       forecastHtml =
         forecastHtml +
         `<div class="forecast-weather-day">
-      <div class="forecast-weather-day-name">${formatForecastDay(
-        day.time
-      )}</div>
+        <div class="scr-only" aria-hidden="false">${formatForecastDay(
+          day.time,
+          true
+        )}</div>
+        <div class="forecast-weather-day-name" aria-hidden="true">${formatForecastDay(
+          day.time
+        )}</div>
       <img src = ${day.condition.icon_url} alt=${day.condition.icon} title=${
           day.condition.icon
         } class="forecast-weather-icon"/>
       <div class="forecast-weather-temperatures">
-      <div class="forecast-weather-temperature-high">${Math.round(
+      <div class="scr-only" aria-hidden="false">A high of ${Math.round(
+        day.temperature.maximum
+      )}°C</div>
+      <div class="forecast-weather-temperature-high" aria-hidden = "true">${Math.round(
         day.temperature.maximum
       )}°</div>
-      <div class="forecast-weather-temperature-low">${Math.round(
+      <div class="scr-only" aria-hidden="false"> A low of ${Math.round(
+        day.temperature.minimum
+      )}°C</div>
+      <div class="forecast-weather-temperature-low" aria-hidden = "true" >${Math.round(
         day.temperature.minimum
       )}°</div>
       </div>
@@ -90,15 +102,16 @@ function apiForecastSearch(city) {
 }
 
 function updateQuote(temp) {
+  let heading = `<span class="scr-only">Weather tip:</span>`;
   if (temp <= 30) {
     if (temp <= 10) {
-      return `<em>Keep warm</em> ♨️🧦`;
+      return `${heading}<em>Keep warm</em> ♨️🧦`;
     } else if (temp < 20) {
-      return ` <em>Tad bit chilly</em> 🍃🧥`;
+      return `${heading}<em>Tad bit chilly</em> 🍃🧥`;
     }
-    return ` <em>Enjoy the warm weather</em> 🌦️☀️`;
+    return `${heading}<em>Enjoy the warm weather</em> 🌦️☀️`;
   } else {
-    return `<em>Remember to stay hydrated</em> 💧🕶️`;
+    return `${heading}<em>Remember to stay hydrated</em> 💧🕶️`;
   }
 }
 
